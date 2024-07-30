@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de BMI</title>
+   <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="cont">
+        <div class="container2">
+            <h1>Calculadora de BMI</h1>
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" step="0.1"><br>
+            <label for="altura">Altura (m):</label>
+            <input type="number" id="altura" step="0.01"><br>
+            <button onclick="calcularBMI()">Calcular BMI</button>
+            <p id="resultado"></p>
+        </div>
+    </div>
+    
+    <script>
+        function calcularBMI() {
+            let peso = parseFloat(document.getElementById('peso').value);
+            let altura = parseFloat(document.getElementById('altura').value);
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                document.getElementById('resultado').innerText = "Por favor, ingrese valores válidos.";
+                return;
+            }
+
+            let bmi = peso / (altura * altura);
+            let resultado = "El BMI calculado es: " + bmi.toFixed(2) + ". ";
+
+            if (bmi < 18.5) {
+                resultado += "Bajo peso.";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                resultado += "Peso normal.";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                resultado += "Sobrepeso.";
+            } else {
+                resultado += "Obesidad.";
+            }
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+</html>
