@@ -1,38 +1,58 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    grid: column, padding 30px;
     align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
 }
-
-.container {
-    text-align: center;
-    background-color: white;
-    padding: 20px;
+.tip-calculator{
+    width: 300px;
+    padding: 30px;
+    background-color: #14e483;
+    margin: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.Generator, .cont {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-input {
-    margin: 10px 0;
+.Generator {
+    background-color: #add8e6;
+}
+
+.cont {
+    background-color: #ffc0cb;
+}
+
+input, button {
+    width: 100%;
     padding: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 button {
-    padding: 10px 20px;
     background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+#result, #resultado {
+    margin-top: 70px;
+    font-weight: bold;
 }

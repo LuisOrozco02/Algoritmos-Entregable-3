@@ -3,19 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Nombres de Usuario</title>
+    <title>Generador de Nombre de Usuario, Calculadora de BMI</title>
     <link rel="stylesheet" href="/Atempt/styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Generador de Nombres de Usuario</h1>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre"><br>
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido"><br>
-        <button onclick="generarNombreUsuario()">Generar Nombre de Usuario</button>
-        <p id="resultado"></p>
-    </div>
-    <script src="script.js"></script>
+    <section class="tip-calculator">
+        <h1>Calculadora de Propinas</h1>
+        <form id="tipForm">
+            <label for="billTotal">Total de la factura:</label>
+            <input type="number" id="billTotal" required>
+            <br><br>
+            <label for="tipPercentage">Porcentaje de propina (%):</label>
+            <input type="number" id="tipPercentage" required>
+            <br><br>
+            <button type="submit">Calcular Propina</button>
+        </form>
+        <p id="tipResult"></p>
+    </section>
+
+    <section class="Generator" style="text-align: center;">
+        <h1>Generador de Nombre de Usuario</h1>
+        <form id="usernameForm">
+            <label for="firstName">Nombre:</label>
+            <input type="text" id="firstName" required>
+            <br><br>
+            <label for="lastName">Apellido:</label>
+            <input type="text" id="lastName" required>
+            <br><br>
+            <button type="submit">Generar Nombre de Usuario</button>
+        </form>
+        <p id="result"></p>
+    </section>
+
+    <section class="CalculatorBmi">
+        <div class="cont">
+            <div class="container2">
+                <h1>Calculadora de BMI</h1>
+                <label for="peso">Peso (kg):</label>
+                <input type="number" id="peso" step="0.1"><br>
+                <label for="altura">Altura (m):</label>
+                <input type="number" id="altura" step="0.01"><br>
+                <button onclick="calcularBMI()">Calcular BMI</button>
+                <p id="resultado"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('usernameForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+
+            function generateUsername(firstName, lastName) {
+                const firstPart = firstName.slice(0, 3).toLowerCase();
+                const secondPart = lastName.slice(0, 3).toLowerCase();
+                const randomNumber = Math.floor(Math.random() * 1000); // Número aleatorio entre 0 y 999
+
+                return firstPart + secondPart + randomNumber;
+            }
+
+            const username = generateUsername(firstName, lastName);
+            document.getElementById('result').textContent = `Nombre de Usuario Generado: ${username}`;
+        });
+
+        function calcularBMI() {
+            let peso = parseFloat(document.getElementById('peso').value);
+            let altura = parseFloat(document.getElementById('altura').value);
+
+            if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+                document.getElementById('resultado').innerText = "Por favor, ingrese valores válidos.";
+                return;
+            }
+
+            let bmi = peso / (altura * altura);
+            let resultado = "El BMI calculado es: " + bmi.toFixed(2) + ". ";
+
+            if (bmi < 18.5) {
+                resultado += "Bajo peso.";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                resultado += "Peso normal.";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                resultado += "Sobrepeso.";
+            } else {
+                resultado += "Obesidad.";
+            }
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+        document.getElementById('tipForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const billTotal = parseFloat(document.getElementById('billTotal').value);
+            const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+
+            if (isNaN(billTotal) || isNaN(tipPercentage) || billTotal <= 0 || tipPercentage < 0) {
+                document.getElementById('tipResult').textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+
+            const tipAmount = billTotal * tipPercentage / 100;
+            document.getElementById('tipResult').textContent = `La propina calculada es: $${tipAmount.toFixed(2)}`;
+        });
+    </script>
 </body>
+
 </html>
