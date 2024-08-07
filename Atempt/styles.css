@@ -5,7 +5,26 @@ body {
     align-items: center;
     margin: 0;
     background-color: #f0f0f0;
+    justify-content: center;
+    height: 100vh;
+    }
+.hero-name-generator { 
+    width: 350px;
+    background-color: aqua;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 1 1 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
+.word-reverser {
+    width: 300px;
+    background-color: #f87754;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 .tip-calculator{
     width: 300px;
     padding: 30px;
@@ -32,6 +51,14 @@ body {
 .cont {
     background-color: #ffc0cb;
 }
+.container4 {
+    background-color: #f983e9;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 input, button {
     width: 100%;
@@ -54,5 +81,9 @@ button:hover {
 
 #result, #resultado {
     margin-top: 70px;
+    font-weight: bold;
+}
+#reversedResult {
+    margin-top: 20px;
     font-weight: bold;
 }

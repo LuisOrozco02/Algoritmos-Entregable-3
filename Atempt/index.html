@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Nombre de Usuario, Calculadora de BMI</title>
+    <link rel="stylesheet" href="/Atempt/styles.css">
+    <script src="/script.js"></script>
+</head>
+
+<body>
+    <section class="word-reverser">
+        <h1>Invertir Palabras</h1>
+        <form id="reverseForm">
+            <label for="phrase">Ingrese una frase:</label>
+            <input type="text" placeholder="Agrega tu frase" id="phrase" required>
+            <br><br>
+            <button type="submit">Invertir Palabras</button>
+        </form>
+        <p id="reversedResult"></p>
+    </section>
+
+    <section class="tip-calculator">
+        <h1>Calculadora de Propinas</h1>
+        <form id="tipForm">
+            <label for="billTotal">Total de la factura:</label>
+            <input type="number" placeholder="$$$$" id="billTotal" required>
+            <br><br>
+            <label for="tipPercentage">Porcentaje de propina (%):</label>
+            <input type="number" placeholder="Agrega el %" id="tipPercentage" required>
+            <br><br>
+            <button type="submit">Calcular Propina</button>
+        </form>
+        <p id="tipResult"></p>
+    </section>
+
+    <section class="Generator" style="text-align: center;">
+        <h1>Generador de Nombre de Usuario</h1>
+        <form id="usernameForm">
+            <label for="firstName">Nombre:</label>
+            <input type="text" placeholder="Marino" id="firstName" required>
+            <br><br>
+            <label for="lastName">Apellido:</label>
+            <input type="text" placeholder="Franco" id="lastName" required>
+            <br><br>
+            <button type="submit">Generar Nombre de Usuario</button>
+        </form>
+        <p id="result"></p>
+    </section>
+
+    <section class="CalculatorBmi">
+        <div class="cont">
+            <div class="container2">
+                <h1>Calculadora de BMI</h1>
+                <label for="peso">Peso (kg):</label>
+                <input type="number" placeholder="Peso En Kg" id="peso" step="0.1"><br>
+                <label for="altura">Altura (m):</label>
+                <input type="number" placeholder="Altura" id="altura" step="0.01"><br>
+                <button onclick="calcularBMI()">Calcular BMI</button>
+                <p id="resultado"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-name-generator">
+        <h1>Generador de Nombres de Superhéroe</h1>
+        <form id="heroForm">
+            <label for="userName">Nombre:</label>
+            <input type="text" id="userName" required>
+            <br><br>
+            <label for="animal">Animal Favorito:</label>
+            <input type="text" id="animal" required>
+            <br><br>
+            <button type="submit">Generar Nombre de Superhéroe</button>
+        </form>
+        <p id="heroNameResult"></p>
+    </section>
+    
+    
+</body>
+
+</html>
